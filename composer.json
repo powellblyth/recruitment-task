@@ -1,0 +1,13 @@
+{
+    "name": "powellblyth/thirdbridge-recruitment-task",
+    "description": "Technical test for Third Bridge - command line data parser\"",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Toby Powell-Blyth",
+            "email": "toby@thegiltclub.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
