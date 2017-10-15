@@ -1,0 +1,17 @@
+users:
+  - name: John
+    active: true
+    value: 500
+    length: 6
+  - name: Mark
+    active: true
+    value: 250
+    length: 5
+  - name: Paul
+    active: false
+    value: 100
+    length: 10
+  - name: Ben
+    active: true
+    value: 150
+    length: 10

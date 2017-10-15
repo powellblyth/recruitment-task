@@ -12,7 +12,11 @@ if ($argc < 2) {
     if (array_key_exists('action', $opts)) {
         switch ($opts['action']) {
             case 'summarise':
+            case 'total':
                 $command = new \Commands\SummariseCommand();
+                break;
+            case 'average':
+                $command = new \Commands\AverageCommand();
                 break;
             default:
                 ;

@@ -2,11 +2,11 @@
 
 namespace Commands;
 
-class SummariseCommand extends Command {
+class AverageCommand extends Command {
 
     protected $longOptions = ['filetype:', 'filename:', 'field:', 'separator::', 'delimiter::', 'escapecharacter::', 'action::'];
     protected $options = '';
-    protected $exampleText = 'Correct usage is php scripts/do.php --action=summarise --filetype=xml|csv|yaml --filename="/path/to/file.extension" --field=value';
+    protected $exampleText = 'Correct usage is php scripts/do.php --action=average --filetype=xml|csv|yaml --filename="/path/to/file.extension" --field=value';
 
     public function execute(): bool {
         $options = $this->getUserOptions();
@@ -17,8 +17,8 @@ class SummariseCommand extends Command {
             $dataStore->setData($importer->loadData());
 
             $dataManager = new \Lib\DataManager($dataStore);
-            $total = $dataManager->totaliseColumn($options['field']);
-            echo "\nTOTAL OF " . $options['field'] ." WAS " . $total."\n\n";
+            $average = $dataManager->averageColumn($options['field']);
+            echo "\Average OF " . $options['field'] ." WAS " . $average."\n\n";
             
             return true;
         } else {

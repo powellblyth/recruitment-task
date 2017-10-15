@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<users>
+    <user>
+        <name>John</name>
+        <active>true</active>
+        <value>500</value>
+        <length>6</length>
+    </user>
+    <user>
+        <name>Mark</name>
+        <active>true</active>
+        <value>250</value>
+        <length>5</length>
+    </user>
+    <user>
+        <name>Paul</name>
+        <active>false</active>
+        <value>100</value>
+        <length>12</length>
+    </user>
+    <user>
+        <name>Ben</name>
+        <active>true</active>
+        <value>150</value>
+        <length>10</length>
+    </user>
+</users>
