@@ -32,28 +32,6 @@ final class CommandTest extends TestCase {
         $this->assertSame($expected, $sut->requiredFieldsPresent());
     }
 
-    public function providergetImporter() {
-        return [
-            ['\\Importers\\CSVImporter', 'csv'],
-            ['\\Importers\\CSVImporter', 'CSV'], //check case sensitivity
-            ['\\Importers\\CSVImporter', 'CsV'],
-            ['\\Importers\\XMLImporter', 'xml'],
-            ['\\Importers\\JSONImporter', 'json'],
-            [null, 'sausages'],
-        ];
-    }
-
-    /**
-     * @dataProvider providergetImporter
-     */
-    public function testgetImporter($expectedClass, $filetype) {
-        if (!is_null($expectedClass)) {
-            $this->assertInstanceOf($expectedClass, \Commands\Command::getImporter($filetype, __FILE__));
-        } else {
-            $this->assertNull($expectedClass, \Commands\Command::getImporter($filetype, __FILE__));
-        }
-    }
-
     public function testclearData() {
         $sut = $this->getMockForAbstractClass('\Commands\Command', [], '', true, true, true, []);
         $class = new \ReflectionClass($sut);

@@ -11,31 +11,6 @@ abstract class Command {
     protected $longOptions;
     protected $exampleText;
 
-    /**
-     * Factory method to get the right command type
-     * Note use of nullable type - first PHP7.1 feature
-     * 
-     * @param string $fileType
-     * @param string $fileName
-     */
-    public static function getImporter(string $fileType, string $fileName): ?\Importers\ImporterBase {
-        switch (strToLower($fileType)) {
-            case 'csv':
-                $object = new \Importers\CSVImporter($fileName);
-                break;
-            case 'xml':
-                $object = new \Importers\XMLImporter($fileName);
-                break;
-            case 'json':
-                $object = new \Importers\JSONImporter($fileName);
-                break;
-            default:
-                $object = null;
-                break;
-        }
-        return $object;
-    }
-
     public function getOptions(): string {
         return $this->options;
     }

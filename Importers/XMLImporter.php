@@ -7,45 +7,32 @@ namespace Importers;
  */
 class XMLImporter extends ImporterBase {
 
-
-    /**
-     * 
-     * @param string $filePath The correct path to the file
-     * @param string $delimiter optional delimeter override
-     * @param string $enclosure optional enclosure override
-     * @param string $escape optional escape override
-     */
-    public function __construct(string $filePath, string $delimiter = null, string $enclosure = null, string $escape = null) {
-        parent::__construct($filePath);
-        if (!is_null($delimiter)) {
-            $this->delimiter = $delimiter;
-        }
-        if (!is_null($enclosure)) {
-            $this->enclosure = $enclosure;
-        }
-        if (!is_null($escape)) {
-            $this->escape = $escape;
-        }
+    public function getFile(string $filePath): bool {
+        // We are using a more direct yaml parser, no need to 
+        // use the inherited file handle management
+        return true;
     }
 
     /**
      * CSV implementation of the loadData parameter
      * @return boolean
      */
-    public function loadData(): bool {
-        $state = false;
-        $this->clearData();
+    public function loadData(): array {
 
-        if (is_resource($this->fileHandle)) {
-            $state = false;
-            $this->data = simplexml_load_file($this->fileHandle);
-            if ($this->data === false) {
-                $state = false;
+        $result = [];
+        if (is_file($this->filePath)) {
+            $data = simplexml_load_file($this->filePath);
+            if ($data === false) {// || !is_array($data) || !array_key_exists('user', $data)) {
                 throw new ImporterException("Invalid File Format");
+            } else {
+                $this->data = [];
+                foreach ($data->user as $user) {
+                    $result[] = ["name" => (string) $user->name, "active" => (string) $user->active, "value" => (string) $user->value];
+                }
             }
         }
 
-        return $state;
+        return $result;
     }
 
 }
