@@ -6,7 +6,7 @@ namespace Importers;
  * Abstract base class to hang some OO logic around
  * Doesn't do anything else other than act as a sensible name base
  */
-abstract class ImporterBase extends \Lib\FileReader {
+abstract class Factory {
 
     /**
      * Factory method to get the right command type
@@ -14,8 +14,9 @@ abstract class ImporterBase extends \Lib\FileReader {
      * 
      * @param string $fileType
      * @param string $fileName
+     * @return \Importers\ImporterInterface
      */
-    public static function getImporter(string $fileType, string $fileName): ?\Importers\ImporterBase {
+    public static function getImporter(string $fileType, string $fileName): ?\Importers\ImporterInterface {
         switch (strToLower($fileType)) {
             case 'csv':
                 $object = new \Importers\CSVImporter($fileName);
@@ -27,7 +28,7 @@ abstract class ImporterBase extends \Lib\FileReader {
                 $object = new \Importers\JSONImporter($fileName);
                 break;
             case 'yml':
-            case 'taml':
+            case 'yaml':
                 $object = new \Importers\YamlImporter($fileName);
                 break;
             default:

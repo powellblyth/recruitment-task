@@ -5,16 +5,8 @@ use Symfony\Component\Yaml\Yaml;
 /**
  * Processor for CSV files
  */
-class YamlImporter extends ImporterBase {
+class YamlImporter extends Base {
 
-    public function getFile(string $filePath):bool
-    {
-        // We are using a more direct yaml parser, no need to 
-        // use the inherited file handle management
-        return true;
-        
-    }
-    
     /**
      * Yaml implementation of the loadData parameter
      * @return boolean

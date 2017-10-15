@@ -10,9 +10,9 @@ class SummariseCommand extends Command {
 
     public function execute(): bool {
         $options = $this->getUserOptions();
-        $importer = \Importers\ImporterBase::getImporter($options['filetype'], $options['filename']);
+        $importer = \Importers\Factory::getImporter($options['filetype'], $options['filename']);
 
-        if ($importer instanceof \Importers\ImporterBase) {
+        if ($importer instanceof \Importers\ImporterInterface) {
             $dataStore = new \Lib\DataStore();
             $dataStore->setData($importer->loadData());
 

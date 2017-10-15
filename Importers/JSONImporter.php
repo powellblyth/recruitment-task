@@ -2,7 +2,7 @@
 
 namespace Importers;
 
-class JSONImporter extends ImporterBase {
+class JSONImporter extends Base {
 //STUB
      public function loadData(): array {
          return [];

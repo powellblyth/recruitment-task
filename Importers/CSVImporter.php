@@ -5,7 +5,7 @@ namespace Importers;
 /**
  * Processor for CSV files
  */
-class CSVImporter extends ImporterBase {
+class CSVImporter extends Base {
 
     protected $fileHandle;
     protected $delimiter = ",";

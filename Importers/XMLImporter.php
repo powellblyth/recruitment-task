@@ -5,16 +5,10 @@ namespace Importers;
 /**
  * Processor for CSV files
  */
-class XMLImporter extends ImporterBase {
-
-    public function getFile(string $filePath): bool {
-        // We are using a more direct yaml parser, no need to 
-        // use the inherited file handle management
-        return true;
-    }
+class XMLImporter extends Base {
 
     /**
-     * CSV implementation of the loadData parameter
+     * XML implementation of the loadData parameter
      * @return boolean
      */
     public function loadData(): array {

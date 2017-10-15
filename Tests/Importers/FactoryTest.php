@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @covers Email
  */
-final class ImporterBaseTest extends TestCase {
+final class FactoryTest extends TestCase {
 
     public function providergetImporter() {
         return [
@@ -17,6 +17,8 @@ final class ImporterBaseTest extends TestCase {
             ['\\Importers\\CSVImporter', 'CSV'], //check case sensitivity
             ['\\Importers\\CSVImporter', 'CsV'],
             ['\\Importers\\XMLImporter', 'xml'],
+            ['\\Importers\\YamlImporter', 'yml'],
+            ['\\Importers\\YamlImporter', 'yaml'],
             ['\\Importers\\JSONImporter', 'json'],
             [null, 'sausages'],
         ];
@@ -27,9 +29,9 @@ final class ImporterBaseTest extends TestCase {
      */
     public function testgetImporter($expectedClass, $filetype) {
         if (!is_null($expectedClass)) {
-            $this->assertInstanceOf($expectedClass, \Importers\ImporterBase::getImporter($filetype, __FILE__));
+            $this->assertInstanceOf($expectedClass, \Importers\Factory::getImporter($filetype, __FILE__));
         } else {
-            $this->assertNull($expectedClass, \Importers\ImporterBase::getImporter($filetype, __FILE__));
+            $this->assertNull($expectedClass, \Importers\Factory::getImporter($filetype, __FILE__));
         }
     }
 
