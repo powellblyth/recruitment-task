@@ -1,6 +1,6 @@
 {
     "name": "powellblyth/thirdbridge-recruitment-task",
-    "description": "Technical test for Third Bridge - command line data parser\"",
+    "description": "Technical test for Third Bridge - command line data parser",
     "type": "project",
     "authors": [
         {
@@ -12,6 +12,11 @@
     "require": {},
     "require-dev": {
         "phpunit/phpunit": "^6.2"
+    },
+    "config": {
+        "platform": {
+            "php": "7.1.0"
+        }
     },
     "autoload": {
         "psr-4": {

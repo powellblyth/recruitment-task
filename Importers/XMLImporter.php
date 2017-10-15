@@ -7,9 +7,6 @@ namespace Importers;
  */
 class XMLImporter extends ImporterBase {
 
-    protected $delimiter = ",";
-    protected $enclosure = '"';
-    protected $escape = '\\';
 
     /**
      * 
