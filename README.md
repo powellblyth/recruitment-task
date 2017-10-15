@@ -18,5 +18,7 @@ You can configure with command line switches to generate on-screen display
 Absolutely
 
 ## Usage examples
-php Scripts/do.php --action=summarise --filetype=yaml --filename="data/file.yml" --field=value
-php Scripts/do.php --action=average --filetype=xml --filename="data/file2.xml" --field=length
+
+`php Scripts/do.php --action=summarise --filetype=yaml --filename="data/file.yml" --field=value`
+
+`php Scripts/do.php --action=average --filetype=xml --filename="data/file2.xml" --field=length`
