@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Tests;
+namespace Tests\Importers;
 
 use PHPUnit\Framework\TestCase;
 
@@ -14,7 +14,7 @@ final class CSVImporterTest extends TestCase {
     public function providerloadData() {
         return [
             [1, true, 1, [], false],
-            [1, false, 0, ['a'=>'b'], false],
+            [1, false, 0, ['a' => 'b'], false],
             [1, true, 1, null, true],
         ];
     }
@@ -27,7 +27,7 @@ final class CSVImporterTest extends TestCase {
      * @param type $getCSVResult
      */
     public function testloadData($expectHandleIsValidCount, $handleIsValidResult, $expectgetCSVCount, $getCSVResult, $expectException) {
-        $sut = $this->getMockBuilder('\\Importers\\CSVImporter')
+        $sut = $this->getMockBuilder('\\Importers\\CSV')
                 ->setMethods(array('fileHandleIsValid', 'getCSV'))
                 ->disableOriginalClone()
                 ->setConstructorArgs(array(__FILE__))
@@ -44,7 +44,7 @@ final class CSVImporterTest extends TestCase {
 
 
         if ($expectException) {
-            $this->expectException(\Exceptions\ImporterException::class);
+            $this->expectException(\Importers\ImporterException::class);
         }
         $sut->loadData();
 
@@ -64,7 +64,7 @@ final class CSVImporterTest extends TestCase {
      * 
      */
     public function testConstructor(string $filePath, string $delimiter, string $enclosure, string $escape) {
-        $sut = $this->getMockBuilder('Importers\\CSVImporter')
+        $sut = $this->getMockBuilder('Importers\\CSV')
                 ->setMethods(array('fileHandleIsValid', 'getCSV'))
                 ->disableOriginalClone()
                 ->setConstructorArgs(array($filePath, $delimiter, $enclosure, $escape))
@@ -91,7 +91,7 @@ final class CSVImporterTest extends TestCase {
      * @dataProvider providergetFileHandle
      */
     public function testgetFileHandle($fileName, $expectHandle) {
-        $sut = $this->getMockBuilder('Importers\\CSVImporter')
+        $sut = $this->getMockBuilder('Importers\\CSV')
                 ->setMethods(array())
                 ->disableOriginalClone()
                 ->setConstructorArgs(array($fileName))
@@ -129,7 +129,7 @@ final class CSVImporterTest extends TestCase {
      * @dataProvider providergetFile
      */
     public function testGetFile($filePath, $timesCalledGetFileHandle, $isFileReal) {
-        $sut = $this->getMockBuilder('\\Importers\\CSVImporter')
+        $sut = $this->getMockBuilder('\\Importers\\CSV')
                 ->setMethods(array('getFileHandle', 'fileIsReal', 'clearFileHandle', '__destruct'))
                 ->disableOriginalClone()
                 ->setConstructorArgs(array(__FILE__))

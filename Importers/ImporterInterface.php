@@ -1,8 +1,10 @@
 <?php
+
 namespace Importers;
-interface ImporterInterface
-{
+
+interface ImporterInterface {
+
     public function __construct(string $filePath);
-    
+
     public function loadData(): array;
 }

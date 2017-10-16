@@ -5,7 +5,7 @@ namespace Importers;
 /**
  * Processor for CSV files
  */
-class CSVImporter extends Base {
+class CSV extends Base {
 
     protected $fileHandle;
     protected $delimiter = ",";
@@ -88,7 +88,7 @@ class CSVImporter extends Base {
                 $result = $data;
             } else {
 //                var_dump($data);
-                throw new \Exceptions\ImporterException("Invalid File Format");
+                throw new \Importers\ImporterException("Invalid File Format");
             }
         }
 
@@ -120,8 +120,7 @@ class CSVImporter extends Base {
         while (!feof($fileHandle)) {
             // grab the row
             $inputRow = fgetcsv($fileHandle, 0, $delimiter, $enclosure, $escape);
-            if (false !== $inputRow)
-            {
+            if (false !== $inputRow) {
                 $newDataRow = [];
                 foreach ($inputRow as $counter => $rowItem) {
                     $newDataRow[$headers[$counter]] = $rowItem;

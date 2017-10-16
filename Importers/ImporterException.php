@@ -1,6 +1,6 @@
 <?php
 
-namespace Exceptions;
+namespace Importers;
 
 class ImporterException extends \Exception {
     

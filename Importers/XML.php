@@ -5,7 +5,7 @@ namespace Importers;
 /**
  * Processor for CSV files
  */
-class XMLImporter extends Base {
+class XML extends Base {
 
     /**
      * XML implementation of the loadData parameter

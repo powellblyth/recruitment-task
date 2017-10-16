@@ -19,22 +19,26 @@ abstract class Factory {
     public static function getImporter(string $fileType, string $fileName): ?\Importers\ImporterInterface {
         switch (strToLower($fileType)) {
             case 'csv':
-                $object = new \Importers\CSVImporter($fileName);
+                $object = new \Importers\CSV($fileName);
+                break;
+            case 'csvchunked':
+                $object = new \Importers\CSVChunked($fileName);
                 break;
             case 'xml':
-                $object = new \Importers\XMLImporter($fileName);
+                $object = new \Importers\XML($fileName);
                 break;
             case 'json':
-                $object = new \Importers\JSONImporter($fileName);
+                $object = new \Importers\JSON($fileName);
                 break;
             case 'yml':
             case 'yaml':
-                $object = new \Importers\YamlImporter($fileName);
+                $object = new \Importers\Yaml($fileName);
                 break;
             default:
                 $object = null;
                 break;
         }
         return $object;
-    }   
+    }
+
 }

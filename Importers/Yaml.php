@@ -1,11 +1,11 @@
 <?php
 
 namespace Importers;
-use Symfony\Component\Yaml\Yaml;
+
 /**
  * Processor for CSV files
  */
-class YamlImporter extends Base {
+class Yaml extends Base {
 
     /**
      * Yaml implementation of the loadData parameter
@@ -13,13 +13,11 @@ class YamlImporter extends Base {
      */
     public function loadData(): array {
         $result = [];
-        $data = Yaml::parse(file_get_contents($this->filePath));
-        if (is_array($data) && array_key_exists('users', $data))
-        {
+        $data = \Symfony\Component\Yaml\Yaml::parse(file_get_contents($this->filePath));
+        if (is_array($data) && array_key_exists('users', $data)) {
             $result = $data['users'];
         }
         return $result;
-        
     }
 
 }

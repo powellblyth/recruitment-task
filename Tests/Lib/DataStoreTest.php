@@ -12,8 +12,8 @@ use PHPUnit\Framework\TestCase;
 final class DataStoreTest extends TestCase {
 
     public function testclearData() {
-        $testData = [0=>['a' => 'b']];
-        
+        $testData = [0 => ['a' => 'b']];
+
         $sut = $this->getMockForAbstractClass('\Lib\DataStore', [], '', true, true, true, []);
         $class = new \ReflectionClass($sut);
         $reflection_property = $class->getProperty('data');
@@ -25,9 +25,6 @@ final class DataStoreTest extends TestCase {
         $sut->clearData();
         $this->assertFalse($sut->hasData());
     }
-    
-            
 
-    
     // NOTE as this is a demonstration, the rest of this class is not thoroughly tested
 }

@@ -39,7 +39,7 @@ abstract class Command {
         foreach ($this->getLongOptions() as $option) {
             $optionPlain = rtrim($option, ":");
             // If it ends with : but not :: then it is required
-            if (false === strpos($option, '::') && ((strlen($option)-1) === strpos($option, ':'))) {
+            if (false === strpos($option, '::') && ((strlen($option) - 1) === strpos($option, ':'))) {
                 // If it is required, check for existance
                 if (!array_key_exists($optionPlain, $userOptions)) {
                     $result = false;

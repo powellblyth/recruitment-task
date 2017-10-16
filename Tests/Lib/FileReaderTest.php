@@ -29,5 +29,4 @@ final class FileReaderTest extends TestCase {
         $this->assertEquals($expectIsValid, $method->invokeArgs($sut, [$fileName]));
     }
 
-
 }

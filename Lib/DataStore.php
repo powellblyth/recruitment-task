@@ -19,12 +19,11 @@ class DataStore implements \Iterator {
         return isset($this->data[$this->pointer]);
     }
 
-    public function setData(array $data)
-    {
+    public function setData(array $data) {
         $this->clearData();
         $this->data = $data;
     }
-    
+
     /**
      * check if there is any data
      */
@@ -63,14 +62,11 @@ class DataStore implements \Iterator {
             $this->pointer--;
         }
     }
-    
-    function totaliseColumn($columnName)
-    {
+
+    function totaliseColumn($columnName) {
         $total = 0;
-        if ($this->hasData())
-        {
-            foreach ($this as $row)
-            {
+        if ($this->hasData()) {
+            foreach ($this as $row) {
                 $total += $row[$columnName];
             }
         }

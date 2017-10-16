@@ -21,6 +21,7 @@
             "Commands\\": "commands/",
             "Models\\": "Models/",
             "Importers\\": "Importers/",
+            "Outputters\\": "Outputters/",
             "Exceptions\\": "Exceptions/",
             "Lib\\": "Lib/"
         }

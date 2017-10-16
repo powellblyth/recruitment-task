@@ -22,7 +22,7 @@ final class DataManagerTest extends TestCase {
         $reflection_property->setAccessible(true);
         $this->assertSame($mockDataStore, $reflection_property->getValue($sut));
     }
-    
+
     public function testtotaliseColumn() {
         $testData = [0 => ['a' => 5]];
 
@@ -34,7 +34,7 @@ final class DataManagerTest extends TestCase {
     }
 
     public function testaverageColumn() {
-        $testData = [0 => ['a' => 5],1 => ['a' => 3]];
+        $testData = [0 => ['a' => 5], 1 => ['a' => 3]];
 
         $mockDataStore = new \Lib\DataStore();
         $mockDataStore->setData($testData);

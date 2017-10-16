@@ -15,8 +15,8 @@ abstract class FileReader {
     /**
      * abstract function - File Reader doesn't care where the data is from
      */
-    abstract public function loadData(): array;    
-    
+    abstract public function loadData(): array;
+
     public function __construct(string $filePath) {
         $this->filePath = $filePath;
     }

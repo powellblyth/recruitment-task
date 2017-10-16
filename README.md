@@ -8,6 +8,7 @@ You can configure with command line switches to generate on-screen display
 - Which format the file is in (Autodiscovery is a TODO) *--filetype=*
 - Which column in the data to apply the maths to *--field=*
 - Which maths to load *--action=*
+- What form of output to use *--output=* Note that currently only screen output is functional
 
 ## Requirements
 - PHP 7.1 +
@@ -19,6 +20,6 @@ Absolutely
 
 ## Usage examples
 
-`php Scripts/do.php --action=summarise --filetype=yaml --filename="data/file.yml" --field=value`
+`php Scripts/do.php --action=summarise --filetype=yaml --filename="data/file.yml" --field=value --output=screen`
 
-`php Scripts/do.php --action=average --filetype=xml --filename="data/file2.xml" --field=length`
+`php Scripts/do.php --action=average --filetype=xml --filename="data/file2.xml" --field=length --output=file`

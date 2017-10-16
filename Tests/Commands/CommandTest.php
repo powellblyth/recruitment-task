@@ -11,10 +11,10 @@ final class CommandTest extends TestCase {
 
     public function providerrequiredFieldsPresent() {
         return [
-            [true, ["filetype"=> "csv","filename"=>"./data/file.csv"], ['filetype:', 'filename:', 'separator::', 'delimiter::', 'escapecharacter::']],
-            [false, ["filetype"=> "csv","separator"=>";"], ['filetype:', 'filename:', 'separator::', 'delimiter::', 'escapecharacter::']], //missing filename
-            [false, ["delimiter"=> "-","filename"=>"./data/file.csv"], ['filetype:', 'filename:', 'separator::', 'delimiter::', 'escapecharacter::']], //missing filetype
-            [true, ["filetype"=> "csv","filename"=>"./data/file.csv","extra"=>"somehtingelse"], ['filetype:', 'filename:', 'separator::', 'delimiter::', 'escapecharacter::']],
+            [true, ["filetype" => "csv", "filename" => "./data/file.csv"], ['filetype:', 'filename:', 'separator::', 'delimiter::', 'escapecharacter::']],
+            [false, ["filetype" => "csv", "separator" => ";"], ['filetype:', 'filename:', 'separator::', 'delimiter::', 'escapecharacter::']], //missing filename
+            [false, ["delimiter" => "-", "filename" => "./data/file.csv"], ['filetype:', 'filename:', 'separator::', 'delimiter::', 'escapecharacter::']], //missing filetype
+            [true, ["filetype" => "csv", "filename" => "./data/file.csv", "extra" => "somehtingelse"], ['filetype:', 'filename:', 'separator::', 'delimiter::', 'escapecharacter::']],
         ];
     }
 
@@ -25,8 +25,8 @@ final class CommandTest extends TestCase {
      * @param array $longOptions
      */
     public function testrequiredFieldsPresent($expected, $getOptsValue, $longOptions) {
-        $sut = $this->getMockForAbstractClass('\Commands\Command', [], '', true, true, true, ['getUserOptions','getLongOptions']);
-        
+        $sut = $this->getMockForAbstractClass('\Commands\Command', [], '', true, true, true, ['getUserOptions', 'getLongOptions']);
+
         $sut->method('getUserOptions')->will($this->returnValue($getOptsValue));
         $sut->method('getLongOptions')->will($this->returnValue($longOptions));
         $this->assertSame($expected, $sut->requiredFieldsPresent());

@@ -9,5 +9,5 @@ namespace Importers;
  * the correct core filereader code, and implement the same interface
  */
 abstract class Base extends \Lib\FileReader implements ImporterInterface {
-
+    
 }
