@@ -3,7 +3,7 @@
 namespace Commands;
 
 /**
- * @TODO Commands should be refactored to re-use more of this code
+ * @TODO Commands should be refactored to re-use more of this code. Create a base maths class
  */
 class AverageCommand extends Command {
 
