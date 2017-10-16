@@ -7,7 +7,7 @@ namespace Commands;
  */
 class SummariseCommand extends Command {
 
-    protected $longOptions = ['filetype:', 'filename:', 'field:', 'separator::', 'delimiter::', 'escapecharacter::', 'action::'];
+    protected $longOptions = ['filetype:', 'filename:', 'field:', 'separator::', 'delimiter::', 'escapecharacter::', 'action::', 'output::'];
     protected $options = '';
     protected $exampleText = 'Correct usage is php scripts/do.php --action=summarise --filetype=xml|csv|yaml --filename="/path/to/file.extension" --field=value --output=file|screen';
 
