@@ -8,6 +8,16 @@ namespace Importers;
  */
 abstract class Factory {
 
+    protected static function getFileType(string $fileName):string
+    {
+        $fileType = '';
+        $dotPos = strrpos($fileName, ".");
+        if (false !== $dotPos)
+        {
+            $fileType = substr($fileName, $dotPos+1, strlen($fileName) - ($dotPos+1));
+        }
+        return $fileType;
+    }
     /**
      * Factory method to get the right command type
      * Note use of nullable type - first PHP7.1 feature
@@ -16,8 +26,8 @@ abstract class Factory {
      * @param string $fileName
      * @return \Importers\ImporterInterface
      */
-    public static function getImporter(string $fileType, string $fileName): ?\Importers\ImporterInterface {
-        switch (strToLower($fileType)) {
+    public static function getImporter(string $fileName): ?\Importers\ImporterInterface {
+        switch (strToLower(self::getFileType($fileName))) {
             case 'csv':
                 $object = new \Importers\CSV($fileName);
                 break;

@@ -7,13 +7,13 @@ namespace Commands;
  */
 class AverageCommand extends Command {
 
-    protected $longOptions = ['filetype:', 'filename:', 'field:', 'separator::', 'delimiter::', 'escapecharacter::', 'action::', 'output::'];
+    protected $longOptions = ['filename:', 'field:', 'separator::', 'delimiter::', 'escapecharacter::', 'action::', 'output::'];
     protected $options = '';
-    protected $exampleText = 'Correct usage is php scripts/do.php --action=average --filetype=xml|csv|yaml --filename="/path/to/file.extension" --field=value --output=file|screen';
+    protected $exampleText = 'Correct usage is php scripts/do.php --action=average --filename="/path/to/file.extension" [--field=value] [--output=file|screen]';
 
     public function execute(): bool {
         $options = $this->getUserOptions();
-        $importer = \Importers\Factory::getImporter($options['filetype'], $options['filename']);
+        $importer = \Importers\Factory::getImporter($options['filename']);
         $outputter = \Outputters\Factory::getOutputter(isset($options['output']) ? $options['output'] : 'screen');
 
         if ($importer instanceof \Importers\ImporterInterface && $outputter instanceof \Outputters\OutputterInterface) {

@@ -23,11 +23,11 @@ final class FactoryTest extends TestCase {
     /**
      * @dataProvider providergetOutputter
      */
-    public function testgetOutputter($expectedClass, $filetype) {
+    public function testgetOutputter($expectedClass, $outputType) {
         if (!is_null($expectedClass)) {
-            $this->assertInstanceOf($expectedClass, \Outputters\Factory::getOutputter($filetype));
+            $this->assertInstanceOf($expectedClass, \Outputters\Factory::getOutputter($outputType));
         } else {
-            $this->assertNull($expectedClass, \Outputters\Factory::getOutputter($filetype));
+            $this->assertNull($expectedClass, \Outputters\Factory::getOutputter($outputType));
         }
     }
 

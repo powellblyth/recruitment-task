@@ -2,7 +2,7 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 if ($argc < 2) {
-    echo "ERROR invalid paramters. \nCorrect Usage: scripts/do.php <action> [options]\n\n e.g. scripts/do.php summarise --filename=data/file.csv --filetype=csv\n\n";
+    echo "ERROR invalid paramters. \nCorrect Usage: scripts/do.php <action> [options]\n\n e.g. scripts/do.php summarise --filename=data/file.csv\n\n";
     exit(1);
 } else {
     $command = null;
